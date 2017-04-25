@@ -16,11 +16,10 @@ Il progetto usa [Composer](https://getcomposer.org/) per gestire le dipendenze:
 ## Parametri
 
 * format: [rss|json] (string)
- * rss: formato rss
- * json: formato json
+  * rss: formato rss
+  * json: formato json
 * q (string): ricerca libera (es. description:compenso+affidamento)
 * source (string): filtro sul channel (es. name:Comune+di+Cittareale)
 * filter: [ricostruzionetrasparente] (string)
- * ricostruzionetrasparente: query predefinita "sisma terremoto ricostruzione" in "description"
+  * ricostruzionetrasparente: query predefinita "sisma terremoto ricostruzione" in "description"
 * size: (int pos) (dafault: 25)
-
