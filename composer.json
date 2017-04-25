@@ -1,0 +1,8 @@
+{
+	"name": "h24/ag5-feed-generator",
+	"require": {
+		"elasticsearch/elasticsearch": "^5.0",
+		"suin/php-rss-writer": "^1.5",
+		"php-console/php-console": "^3.1"
+	}
+}
