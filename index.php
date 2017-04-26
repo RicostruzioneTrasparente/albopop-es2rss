@@ -8,7 +8,7 @@ define('DEFAULT_SEARCH', '');
 define('PARAM_SOURCE', 'source');
 define('DEFAULT_SOURCE', '');
 define('PARAM_FILTER', 'filter');
-define('DEFAULT_FILTER', 'ricostruzionetrasparente');
+define('DEFAULT_FILTER', '');
 define('PARAM_FROM', 'from');
 define('DEFAULT_FROM', 0);
 define('PARAM_SIZE', 'size');

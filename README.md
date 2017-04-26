@@ -15,11 +15,22 @@ Il progetto usa [Composer](https://getcomposer.org/) per gestire le dipendenze:
 
 ## Parametri
 
-* format: [rss|json] (string)
+* format: [ rss* | json ] (string)
   * rss: formato rss
   * json: formato json
 * q (string): ricerca libera (es. description:compenso+affidamento)
 * source (string): filtro sul channel (es. name:Comune+di+Cittareale)
-* filter: [ricostruzionetrasparente] (string)
+* filter: [ (empty)* | ricostruzionetrasparente ] (string)
+  * (empty): nessun filtro
   * ricostruzionetrasparente: query predefinita "sisma terremoto ricostruzione" in "description"
 * size: (int pos) (dafault: 25)
+
+## Esempi
+
+L'url del feed è http://feeds.ricostruzionetrasparente.it/albi_pretori/
+
+* http://feeds.ricostruzionetrasparente.it/albi_pretori/?filter=ricostruzionetrasparente&q=aedes&size=10&format=rss (atti sulle schede aedes)
+* http://feeds.ricostruzionetrasparente.it/albi_pretori/?filter=ricostruzionetrasparente&q=compensi&size=10&format=rss (atti che riguardano compensi)
+* http://feeds.ricostruzionetrasparente.it/albi_pretori/?q=pubblicazione+matrimonio&size=10&format=rss (pubblicazioni di matrimonio)
+* http://feeds.ricostruzionetrasparente.it/albi_pretori/?q=manutenzione+strade&size=10&format=rss (manutenzione strade)
+
