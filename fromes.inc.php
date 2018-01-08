@@ -18,7 +18,7 @@ function fromEs($search,$filter,$source,$from,$size) {
     if (!empty($search)) {
         $fields = explode(':', $search, 2);
         $search_value = end($fields);
-        $search_key = count($fields) > 1 ? $fields[1] : 'description';
+        $search_key = count($fields) > 1 ? $fields[0] : 'description';
         $query['bool']['must'][] = [
             "match" => [
 				$search_key => $search_value
@@ -29,7 +29,7 @@ function fromEs($search,$filter,$source,$from,$size) {
     if (!empty($source)) {
         $fields = explode(':', $source, 2);
         $search_value = end($fields);
-        $search_key = count($fields) > 1 ? $fields[1] : 'name';
+        $search_key = count($fields) > 1 ? $fields[0] : 'name';
         $query['bool']['must'][] = [
             "term" => [
 			   $search_key => $search_value

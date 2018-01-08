@@ -19,10 +19,11 @@ function toRss($results,$label) {
     $domain = "http://feeds.ricostruzionetrasparente.it";
 	$channel
 		->title("AlboPOP - Aggregato - $label")
-		->description("*non ufficiale* RSS feed degli Albi Pretori dei comuni italiani per $label")
-        ->url("$domain/albi_pretori/")
+        ->description("*non ufficiale* RSS feed degli Albi Pretori dei comuni italiani per $label")
+        ->url("http://www.ricostruzionetrasparente.it")
+        ->feedUrl("$domain/albi_pretori/")
         ->language("it")
-        ->pubDate(new DateTime())
+        ->pubDate(time())
         ->copyright("Creative Commons Attribution 4.0")
         //->webMaster("alessio.cimarelli@ondata.it (Alessio Cimarelli)")
         //->docs("https://github.com/RicostruzioneTrasparente/albopop-es2rss")
