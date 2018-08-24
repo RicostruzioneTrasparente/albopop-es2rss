@@ -8,7 +8,6 @@ function fromEs($search,$filter,$source,$from,$size) {
 
     $query = [
         "bool" => [
-            "minimum_should_match" => 1,
             "must" => [],
             "should" => [],
             "must_not" => [],
@@ -32,6 +31,7 @@ function fromEs($search,$filter,$source,$from,$size) {
         $fields = explode(':', $source, 2);
         $search_values = explode(',', end($fields));
         $search_key = 'channel.' . (count($fields) > 1 ? $fields[0] : 'name');
+        $query["bool"]["minimum_should_match"] = 1;
         foreach ($search_values as $search_value) {
             $query['bool']['should'][] = [
                 "term" => [
