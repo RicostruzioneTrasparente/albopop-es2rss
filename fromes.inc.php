@@ -8,6 +8,7 @@ function fromEs($search,$filter,$source,$from,$size) {
 
     $query = [
         "bool" => [
+            "minimum_should_match" => 1,
             "must" => [],
             "should" => [],
             "must_not" => [],
@@ -18,23 +19,26 @@ function fromEs($search,$filter,$source,$from,$size) {
     if (!empty($search)) {
         $fields = explode(':', $search, 2);
         $search_value = end($fields);
-        $search_key = count($fields) > 1 ? $fields[0] : 'description';
+        $search_key = count($fields) > 1 ? $fields[0] : 'title,description';
         $query['bool']['must'][] = [
-            "match" => [
-				$search_key => $search_value
+            "multi_match" => [
+                "query" => $search_value,
+                "fields" => explode(',', $search_key)
             ]
         ];
     }
 
     if (!empty($source)) {
         $fields = explode(':', $source, 2);
-        $search_value = end($fields);
-        $search_key = count($fields) > 1 ? $fields[0] : 'name';
-        $query['bool']['must'][] = [
-            "term" => [
-			   $search_key => $search_value
-            ]
-        ];
+        $search_values = explode(',', end($fields));
+        $search_key = 'channel.' . (count($fields) > 1 ? $fields[0] : 'name');
+        foreach ($search_values as $search_value) {
+            $query['bool']['should'][] = [
+                "term" => [
+                   $search_key => $search_value
+                ]
+            ];
+        }
     }
 
 	switch($filter) {
