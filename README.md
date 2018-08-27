@@ -18,8 +18,8 @@ Il progetto usa [Composer](https://getcomposer.org/) per gestire le dipendenze:
 * format: [ rss* | json ] (string)
   * rss: formato rss
   * json: formato json
-* q (string): ricerca libera (es. description:compenso+affidamento)
-* source (string): filtro sul channel (es. name:Comune+di+Cittareale)
+* q (string): ricerca libera nella forma `[campo di ricerca[, campo di ricerca[, ...]]]:[stringa di ricerca]` (es. `title,description:sisma+ricostruzione` oppure `pubblicazioni+matrimonio`)
+* source (string): filtro sul channel nella forma `[campo di ricerca]:[chiave di ricerca[, chiave di ricecrca[, ...]]]` (es. `name:Comune+di+Cittareale` oppure `Comune+di+Cittareale,Amatrice,Arquata+del+Tronto`)
 * filter: [ (empty)* | ricostruzionetrasparente ] (string)
   * (empty): nessun filtro
   * ricostruzionetrasparente: query predefinita "sisma terremoto ricostruzione" in "description"
@@ -31,6 +31,8 @@ L'url del feed è http://feeds.ricostruzionetrasparente.it/albi_pretori/
 
 * http://feeds.ricostruzionetrasparente.it/albi_pretori/?filter=ricostruzionetrasparente&q=aedes&size=10&format=rss (atti sulle schede aedes)
 * http://feeds.ricostruzionetrasparente.it/albi_pretori/?filter=ricostruzionetrasparente&q=compensi&size=10&format=rss (atti che riguardano compensi)
+* http://feeds.ricostruzionetrasparente.it/albi_pretori/?filter=ricostruzionetrasparente&source=Amatrice,Arquata+del+Tronto&size=10&format=rss (atti che riguardano compensi ad Amatrice o Arquata del Tronto)
 * http://feeds.ricostruzionetrasparente.it/albi_pretori/?q=pubblicazione+matrimonio&size=10&format=rss (pubblicazioni di matrimonio)
+* http://feeds.ricostruzionetrasparente.it/albi_pretori/?q=traffico&source=Amatrice,Arquata+del+Tronto&size=10&format=rss (atti riguardanti il traffico ad Amatrice)
 * http://feeds.ricostruzionetrasparente.it/albi_pretori/?q=manutenzione+strade&size=10&format=rss (manutenzione strade)
 
